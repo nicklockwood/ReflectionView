@@ -1,0 +1,330 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01BD7E4F13DBA84400D2510E /* forest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01BD7E4E13DBA84400D2510E /* forest.jpg */; };
+		01F68ED713DB52AE00263612 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F68ED613DB52AE00263612 /* UIKit.framework */; };
+		01F68ED913DB52AE00263612 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F68ED813DB52AE00263612 /* Foundation.framework */; };
+		01F68EDB13DB52AE00263612 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F68EDA13DB52AE00263612 /* CoreGraphics.framework */; };
+		01F68EE113DB52AE00263612 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 01F68EDF13DB52AE00263612 /* InfoPlist.strings */; };
+		01F68EE413DB52AE00263612 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F68EE313DB52AE00263612 /* main.m */; };
+		01F68EE713DB52AE00263612 /* ReflectionViewExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F68EE613DB52AE00263612 /* ReflectionViewExampleAppDelegate.m */; };
+		01F68EEA13DB52AE00263612 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F68EE813DB52AE00263612 /* MainWindow.xib */; };
+		01F68EED13DB52AE00263612 /* ReflectionViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F68EEC13DB52AE00263612 /* ReflectionViewExampleViewController.m */; };
+		01F68EF013DB52AE00263612 /* ReflectionViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F68EEE13DB52AE00263612 /* ReflectionViewExampleViewController.xib */; };
+		01F68EF913DB52FC00263612 /* ReflectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F68EF813DB52FC00263612 /* ReflectionView.m */; };
+		01F68F0013DB570E00263612 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F68EFF13DB570E00263612 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01BD7E4E13DBA84400D2510E /* forest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = forest.jpg; sourceTree = "<group>"; };
+		01F68ED213DB52AD00263612 /* ReflectionViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReflectionViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01F68ED613DB52AE00263612 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		01F68ED813DB52AE00263612 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		01F68EDA13DB52AE00263612 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		01F68EDE13DB52AE00263612 /* ReflectionViewExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReflectionViewExample-Info.plist"; sourceTree = "<group>"; };
+		01F68EE013DB52AE00263612 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		01F68EE213DB52AE00263612 /* ReflectionViewExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReflectionViewExample-Prefix.pch"; sourceTree = "<group>"; };
+		01F68EE313DB52AE00263612 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		01F68EE513DB52AE00263612 /* ReflectionViewExampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReflectionViewExampleAppDelegate.h; sourceTree = "<group>"; };
+		01F68EE613DB52AE00263612 /* ReflectionViewExampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReflectionViewExampleAppDelegate.m; sourceTree = "<group>"; };
+		01F68EE913DB52AE00263612 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		01F68EEB13DB52AE00263612 /* ReflectionViewExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReflectionViewExampleViewController.h; sourceTree = "<group>"; };
+		01F68EEC13DB52AE00263612 /* ReflectionViewExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReflectionViewExampleViewController.m; sourceTree = "<group>"; };
+		01F68EEF13DB52AE00263612 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ReflectionViewExampleViewController.xib; sourceTree = "<group>"; };
+		01F68EF713DB52FC00263612 /* ReflectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReflectionView.h; sourceTree = "<group>"; };
+		01F68EF813DB52FC00263612 /* ReflectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReflectionView.m; sourceTree = "<group>"; };
+		01F68EFF13DB570E00263612 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01F68ECF13DB52AD00263612 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01F68F0013DB570E00263612 /* QuartzCore.framework in Frameworks */,
+				01F68ED713DB52AE00263612 /* UIKit.framework in Frameworks */,
+				01F68ED913DB52AE00263612 /* Foundation.framework in Frameworks */,
+				01F68EDB13DB52AE00263612 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01BD7E4D13DBA84400D2510E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				01BD7E4E13DBA84400D2510E /* forest.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		01F68EC713DB52AD00263612 = {
+			isa = PBXGroup;
+			children = (
+				01F68EF613DB52E200263612 /* ReflectionView */,
+				01F68EDC13DB52AE00263612 /* ReflectionViewExample */,
+				01F68ED513DB52AE00263612 /* Frameworks */,
+				01F68ED313DB52AD00263612 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		01F68ED313DB52AD00263612 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01F68ED213DB52AD00263612 /* ReflectionViewExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01F68ED513DB52AE00263612 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01F68ED613DB52AE00263612 /* UIKit.framework */,
+				01F68ED813DB52AE00263612 /* Foundation.framework */,
+				01F68EDA13DB52AE00263612 /* CoreGraphics.framework */,
+				01F68EFF13DB570E00263612 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		01F68EDC13DB52AE00263612 /* ReflectionViewExample */ = {
+			isa = PBXGroup;
+			children = (
+				01BD7E4D13DBA84400D2510E /* Images */,
+				01F68EFE13DB54D100263612 /* Classes */,
+				01F68EFD13DB54BE00263612 /* Nibs */,
+				01F68EDD13DB52AE00263612 /* Supporting Files */,
+			);
+			path = ReflectionViewExample;
+			sourceTree = "<group>";
+		};
+		01F68EDD13DB52AE00263612 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				01F68EDE13DB52AE00263612 /* ReflectionViewExample-Info.plist */,
+				01F68EDF13DB52AE00263612 /* InfoPlist.strings */,
+				01F68EE213DB52AE00263612 /* ReflectionViewExample-Prefix.pch */,
+				01F68EE313DB52AE00263612 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01F68EF613DB52E200263612 /* ReflectionView */ = {
+			isa = PBXGroup;
+			children = (
+				01F68EF713DB52FC00263612 /* ReflectionView.h */,
+				01F68EF813DB52FC00263612 /* ReflectionView.m */,
+			);
+			path = ReflectionView;
+			sourceTree = "<group>";
+		};
+		01F68EFD13DB54BE00263612 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				01F68EE813DB52AE00263612 /* MainWindow.xib */,
+				01F68EEE13DB52AE00263612 /* ReflectionViewExampleViewController.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		01F68EFE13DB54D100263612 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				01F68EE513DB52AE00263612 /* ReflectionViewExampleAppDelegate.h */,
+				01F68EE613DB52AE00263612 /* ReflectionViewExampleAppDelegate.m */,
+				01F68EEB13DB52AE00263612 /* ReflectionViewExampleViewController.h */,
+				01F68EEC13DB52AE00263612 /* ReflectionViewExampleViewController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01F68ED113DB52AD00263612 /* ReflectionViewExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01F68EF313DB52AE00263612 /* Build configuration list for PBXNativeTarget "ReflectionViewExample" */;
+			buildPhases = (
+				01F68ECE13DB52AD00263612 /* Sources */,
+				01F68ECF13DB52AD00263612 /* Frameworks */,
+				01F68ED013DB52AD00263612 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReflectionViewExample;
+			productName = ReflectionViewExample;
+			productReference = 01F68ED213DB52AD00263612 /* ReflectionViewExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01F68EC913DB52AD00263612 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 01F68ECC13DB52AD00263612 /* Build configuration list for PBXProject "ReflectionViewExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 01F68EC713DB52AD00263612;
+			productRefGroup = 01F68ED313DB52AD00263612 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01F68ED113DB52AD00263612 /* ReflectionViewExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01F68ED013DB52AD00263612 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01F68EE113DB52AE00263612 /* InfoPlist.strings in Resources */,
+				01F68EEA13DB52AE00263612 /* MainWindow.xib in Resources */,
+				01F68EF013DB52AE00263612 /* ReflectionViewExampleViewController.xib in Resources */,
+				01BD7E4F13DBA84400D2510E /* forest.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01F68ECE13DB52AD00263612 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01F68EE413DB52AE00263612 /* main.m in Sources */,
+				01F68EE713DB52AE00263612 /* ReflectionViewExampleAppDelegate.m in Sources */,
+				01F68EED13DB52AE00263612 /* ReflectionViewExampleViewController.m in Sources */,
+				01F68EF913DB52FC00263612 /* ReflectionView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		01F68EDF13DB52AE00263612 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01F68EE013DB52AE00263612 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		01F68EE813DB52AE00263612 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01F68EE913DB52AE00263612 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		01F68EEE13DB52AE00263612 /* ReflectionViewExampleViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01F68EEF13DB52AE00263612 /* en */,
+			);
+			name = ReflectionViewExampleViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		01F68EF113DB52AE00263612 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		01F68EF213DB52AE00263612 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		01F68EF413DB52AE00263612 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReflectionViewExample/ReflectionViewExample-Prefix.pch";
+				INFOPLIST_FILE = "ReflectionViewExample/ReflectionViewExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		01F68EF513DB52AE00263612 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReflectionViewExample/ReflectionViewExample-Prefix.pch";
+				INFOPLIST_FILE = "ReflectionViewExample/ReflectionViewExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01F68ECC13DB52AD00263612 /* Build configuration list for PBXProject "ReflectionViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01F68EF113DB52AE00263612 /* Debug */,
+				01F68EF213DB52AE00263612 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01F68EF313DB52AE00263612 /* Build configuration list for PBXNativeTarget "ReflectionViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01F68EF413DB52AE00263612 /* Debug */,
+				01F68EF513DB52AE00263612 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01F68EC913DB52AD00263612 /* Project object */;
+}
