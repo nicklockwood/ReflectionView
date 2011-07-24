@@ -7,7 +7,7 @@
 //  Get the latest version of ReflectionView from either of these locations:
 //
 //  http://charcoaldesign.co.uk/source/cocoa#reflectionview
-//  https://github.com/demosthenese/reflectionview
+//  https://github.com/demosthenese/ReflectionView
 //
 //  This software is provided 'as-is', without any express or implied
 //  warranty.  In no event will the authors be held liable for any damages
