@@ -45,6 +45,7 @@
 @synthesize reflectionGap;
 @synthesize reflectionScale;
 @synthesize reflectionAlpha;
+@synthesize reflectionBlendColor;
 @synthesize gradientLayer;
 @synthesize reflectionView;
 @synthesize dynamic;
@@ -121,7 +122,7 @@
         //create gradient mask
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0.0);
         CGContextRef gradientContext = UIGraphicsGetCurrentContext();
-        CGFloat colors[] = {1.0, 1.0, 0.0, 1.0};
+        CGFloat colors[] = {1.0 * reflectionAlpha, 1.0, 0.0, 1.0};
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
         CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, colors, NULL, 2);
         CGPoint gradientStartPoint = CGPointMake(0, 0);
@@ -147,11 +148,11 @@
         [self.layer renderInContext:context];
         
         //capture resultant image
+        reflectionView.backgroundColor = reflectionBlendColor;
         reflectionView.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        
+                
         //update reflection
-        reflectionView.alpha = reflectionAlpha;
         reflectionView.frame = CGRectMake(0, self.bounds.size.height + reflectionGap,
                                           self.bounds.size.width, self.bounds.size.height);
     }
@@ -163,6 +164,7 @@
     reflectionGap = 4;
     reflectionScale = 0.5;
     reflectionAlpha = 0.5;
+    reflectionBlendColor = [UIColor clearColor];
     
     //update reflection
     [self update];
@@ -210,6 +212,17 @@
     [self update];
 }
 
+- (void)setReflectionBlendColor:(UIColor *)_reflectionBlendColor
+{
+    if (_reflectionBlendColor != reflectionBlendColor)
+    {
+        [_reflectionBlendColor retain];
+        [reflectionBlendColor release];
+        reflectionBlendColor = _reflectionBlendColor;
+        [self update];
+    }
+}
+
 - (void)layoutSubviews
 {
     [self update];
@@ -219,6 +232,7 @@
 {
     [gradientLayer release];
     [reflectionView release];
+    [reflectionBlendColor release];
     [super dealloc];
 }
 
