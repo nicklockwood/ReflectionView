@@ -34,8 +34,8 @@
 
 @interface ReflectionView ()
 
-@property (nonatomic, retain) CAGradientLayer *gradientLayer;
-@property (nonatomic, retain) UIImageView *reflectionView;
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
+@property (nonatomic, strong) UIImageView *reflectionView;
 
 @end
 
@@ -216,8 +216,6 @@
 {
     if (_reflectionBlendColor != reflectionBlendColor)
     {
-        [_reflectionBlendColor retain];
-        [reflectionBlendColor release];
         reflectionBlendColor = _reflectionBlendColor;
         [self update];
     }
@@ -228,12 +226,5 @@
     [self update];
 }
 
-- (void)dealloc
-{
-    [gradientLayer release];
-    [reflectionView release];
-    [reflectionBlendColor release];
-    [super dealloc];
-}
 
 @end

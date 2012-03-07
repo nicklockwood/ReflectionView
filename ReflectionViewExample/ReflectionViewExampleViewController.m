@@ -32,11 +32,6 @@
     reflectionView.reflectionScale = slider.value;
 }
 
-- (void)dealloc
-{
-    [reflectionView release];
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark View lifecycle
