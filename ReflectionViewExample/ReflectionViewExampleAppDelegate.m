@@ -23,11 +23,5 @@
     return YES;
 }
 
-- (void)dealloc
-{
-    [window release];
-    [viewController release];
-    [super dealloc];
-}
 
 @end

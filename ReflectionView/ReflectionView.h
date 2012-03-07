@@ -38,6 +38,7 @@
 @property (nonatomic, assign) CGFloat reflectionGap;
 @property (nonatomic, assign) CGFloat reflectionScale;
 @property (nonatomic, assign) CGFloat reflectionAlpha;
+@property (nonatomic, strong) UIColor *reflectionBlendColor;
 @property (nonatomic, assign) BOOL dynamic;
 
 - (void)update;
