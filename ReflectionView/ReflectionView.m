@@ -163,9 +163,6 @@
     reflectionGap = 4;
     reflectionScale = 0.5;
     reflectionAlpha = 0.5;
-    
-    //update reflection
-    [self update];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
