@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		015514B8159B9C8E000F1F53 /* ReflectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 015514B7159B9C8E000F1F53 /* ReflectionView.m */; };
 		01BD7E4F13DBA84400D2510E /* forest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01BD7E4E13DBA84400D2510E /* forest.jpg */; };
 		01F68ED713DB52AE00263612 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F68ED613DB52AE00263612 /* UIKit.framework */; };
 		01F68ED913DB52AE00263612 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F68ED813DB52AE00263612 /* Foundation.framework */; };
@@ -17,11 +18,12 @@
 		01F68EEA13DB52AE00263612 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F68EE813DB52AE00263612 /* MainWindow.xib */; };
 		01F68EED13DB52AE00263612 /* ReflectionViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F68EEC13DB52AE00263612 /* ReflectionViewExampleViewController.m */; };
 		01F68EF013DB52AE00263612 /* ReflectionViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F68EEE13DB52AE00263612 /* ReflectionViewExampleViewController.xib */; };
-		01F68EF913DB52FC00263612 /* ReflectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F68EF813DB52FC00263612 /* ReflectionView.m */; };
 		01F68F0013DB570E00263612 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F68EFF13DB570E00263612 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		015514B6159B9C8E000F1F53 /* ReflectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReflectionView.h; sourceTree = "<group>"; };
+		015514B7159B9C8E000F1F53 /* ReflectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReflectionView.m; sourceTree = "<group>"; };
 		01BD7E4E13DBA84400D2510E /* forest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = forest.jpg; sourceTree = "<group>"; };
 		01F68ED213DB52AD00263612 /* ReflectionViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReflectionViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F68ED613DB52AE00263612 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -37,8 +39,6 @@
 		01F68EEB13DB52AE00263612 /* ReflectionViewExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReflectionViewExampleViewController.h; sourceTree = "<group>"; };
 		01F68EEC13DB52AE00263612 /* ReflectionViewExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReflectionViewExampleViewController.m; sourceTree = "<group>"; };
 		01F68EEF13DB52AE00263612 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ReflectionViewExampleViewController.xib; sourceTree = "<group>"; };
-		01F68EF713DB52FC00263612 /* ReflectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReflectionView.h; sourceTree = "<group>"; };
-		01F68EF813DB52FC00263612 /* ReflectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReflectionView.m; sourceTree = "<group>"; };
 		01F68EFF13DB570E00263612 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -57,6 +57,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		015514B5159B9C8E000F1F53 /* ReflectionView */ = {
+			isa = PBXGroup;
+			children = (
+				015514B6159B9C8E000F1F53 /* ReflectionView.h */,
+				015514B7159B9C8E000F1F53 /* ReflectionView.m */,
+			);
+			name = ReflectionView;
+			path = ../ReflectionView;
+			sourceTree = "<group>";
+		};
 		01BD7E4D13DBA84400D2510E /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,7 +78,7 @@
 		01F68EC713DB52AD00263612 = {
 			isa = PBXGroup;
 			children = (
-				01F68EF613DB52E200263612 /* ReflectionView */,
+				015514B5159B9C8E000F1F53 /* ReflectionView */,
 				01F68EDC13DB52AE00263612 /* ReflectionViewExample */,
 				01F68ED513DB52AE00263612 /* Frameworks */,
 				01F68ED313DB52AD00263612 /* Products */,
@@ -116,15 +126,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		01F68EF613DB52E200263612 /* ReflectionView */ = {
-			isa = PBXGroup;
-			children = (
-				01F68EF713DB52FC00263612 /* ReflectionView.h */,
-				01F68EF813DB52FC00263612 /* ReflectionView.m */,
-			);
-			path = ReflectionView;
-			sourceTree = "<group>";
-		};
 		01F68EFD13DB54BE00263612 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +171,9 @@
 /* Begin PBXProject section */
 		01F68EC913DB52AD00263612 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
 			buildConfigurationList = 01F68ECC13DB52AD00263612 /* Build configuration list for PBXProject "ReflectionViewExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -209,7 +213,7 @@
 				01F68EE413DB52AE00263612 /* main.m in Sources */,
 				01F68EE713DB52AE00263612 /* ReflectionViewExampleAppDelegate.m in Sources */,
 				01F68EED13DB52AE00263612 /* ReflectionViewExampleViewController.m in Sources */,
-				01F68EF913DB52FC00263612 /* ReflectionView.m in Sources */,
+				015514B8159B9C8E000F1F53 /* ReflectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +287,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReflectionViewExample/ReflectionViewExample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ReflectionViewExample/ReflectionViewExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -296,6 +301,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReflectionViewExample/ReflectionViewExample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ReflectionViewExample/ReflectionViewExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;

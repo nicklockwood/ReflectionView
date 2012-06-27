@@ -1,10 +1,13 @@
 //
 //  ReflectionView.m
 //
-//  Created by Nick Lockwood on 19/07/2011.
-//  Copyright 2011 Charcoal Design. All rights reserved.
+//  Version 1.1
 //
-//  Get the latest version of ReflectionView from either of these locations:
+//  Created by Nick Lockwood on 19/07/2011.
+//  Copyright 2011 Charcoal Design
+//
+//  Distributed under the permissive zlib license
+//  Get the latest version from either of these locations:
 //
 //  http://charcoaldesign.co.uk/source/cocoa#reflectionview
 //  https://github.com/nicklockwood/ReflectionView
@@ -29,25 +32,24 @@
 //
 
 #import "ReflectionView.h"
-#import <QuartzCore/QuartzCore.h>
 
 
 @interface ReflectionView ()
 
-@property (nonatomic, retain) CAGradientLayer *gradientLayer;
-@property (nonatomic, retain) UIImageView *reflectionView;
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
+@property (nonatomic, strong) UIImageView *reflectionView;
 
 @end
 
 
 @implementation ReflectionView
 
-@synthesize reflectionGap;
-@synthesize reflectionScale;
-@synthesize reflectionAlpha;
-@synthesize gradientLayer;
-@synthesize reflectionView;
-@synthesize dynamic;
+@synthesize reflectionGap = _reflectionGap;
+@synthesize reflectionScale = _reflectionScale;
+@synthesize reflectionAlpha = _reflectionAlpha;
+@synthesize gradientLayer = _gradientLayer;
+@synthesize reflectionView = _reflectionView;
+@synthesize dynamic = _dynamic;
 
 + (Class)layerClass
 {
@@ -56,10 +58,10 @@
 
 - (void)update
 {
-    if (dynamic)
+    if (_dynamic)
     {
         //remove gradient view
-        [reflectionView removeFromSuperview];
+        [_reflectionView removeFromSuperview];
         self.reflectionView = nil;
         
         //update instances
@@ -68,34 +70,34 @@
         layer.rasterizationScale = [UIScreen mainScreen].scale;
         layer.instanceCount = 2;
         CATransform3D transform = CATransform3DIdentity;
-        transform = CATransform3DTranslate(transform, 0, layer.bounds.size.height + reflectionGap, 0);
-        transform = CATransform3DScale(transform, 1.0, -1.0, 0.0);
+        transform = CATransform3DTranslate(transform, 0.0f, layer.bounds.size.height + _reflectionGap, 0.0f);
+        transform = CATransform3DScale(transform, 1.0f, -1.0f, 0.0f);
         layer.instanceTransform = transform;
-        layer.instanceAlphaOffset = reflectionAlpha - 1.0;
+        layer.instanceAlphaOffset = _reflectionAlpha - 1.0f;
         
         //create gradient layer
-        if (!gradientLayer)
+        if (!_gradientLayer)
         {
-            gradientLayer = [[CAGradientLayer alloc] init];
-            self.layer.mask = gradientLayer;
-            gradientLayer.colors = [NSArray arrayWithObjects:
-                                    (id)[UIColor blackColor].CGColor,
-                                    (id)[UIColor blackColor].CGColor,
-                                    (id)[UIColor clearColor].CGColor,
-                                    nil];
+            _gradientLayer = [[CAGradientLayer alloc] init];
+            self.layer.mask = _gradientLayer;
+            _gradientLayer.colors = [NSArray arrayWithObjects:
+                                     (__bridge id)[UIColor blackColor].CGColor,
+                                     (__bridge id)[UIColor blackColor].CGColor,
+                                     (__bridge id)[UIColor clearColor].CGColor,
+                                     nil];
         }
         
         //update mask
         [CATransaction begin];
         [CATransaction setDisableActions:YES]; // don't animate
-        CGFloat total = layer.bounds.size.height * 2.0 + reflectionGap;
-        CGFloat halfWay = (layer.bounds.size.height + reflectionGap) / total - 0.01;
-        gradientLayer.frame = CGRectMake(0, 0, self.bounds.size.width, total);
-        gradientLayer.locations = [NSArray arrayWithObjects:
-                                   [NSNumber numberWithFloat:0.0],
-                                   [NSNumber numberWithFloat:halfWay],
-                                   [NSNumber numberWithFloat:halfWay + (1.0 - halfWay) * reflectionScale],
-                                   nil];
+        CGFloat total = layer.bounds.size.height * 2.0f + _reflectionGap;
+        CGFloat halfWay = (layer.bounds.size.height + _reflectionGap) / total - 0.01f;
+        _gradientLayer.frame = CGRectMake(0.0f, 0.0f, self.bounds.size.width, total);
+        _gradientLayer.locations = [NSArray arrayWithObjects:
+                                    [NSNumber numberWithFloat:0.0f],
+                                    [NSNumber numberWithFloat:halfWay],
+                                    [NSNumber numberWithFloat:halfWay + (1.0f - halfWay) * _reflectionScale],
+                                    nil];
         [CATransaction commit];
     }
     else
@@ -110,69 +112,74 @@
         layer.instanceCount = 1;
         
         //create reflection view
-        if (!reflectionView)
+        if (!_reflectionView)
         {
-            reflectionView = [[UIImageView alloc] initWithFrame:self.bounds];
-            reflectionView.contentMode = UIViewContentModeScaleToFill;
-            reflectionView.userInteractionEnabled = NO;
-            [self addSubview:reflectionView];
+            _reflectionView = [[UIImageView alloc] initWithFrame:self.bounds];
+            _reflectionView.contentMode = UIViewContentModeScaleToFill;
+            _reflectionView.userInteractionEnabled = NO;
+            [self addSubview:_reflectionView];
         }
         
-        //create gradient mask
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0.0);
-        CGContextRef gradientContext = UIGraphicsGetCurrentContext();
-        CGFloat colors[] = {1.0, 1.0, 0.0, 1.0};
-        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
-        CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, colors, NULL, 2);
-        CGPoint gradientStartPoint = CGPointMake(0, 0);
-        CGPoint gradientEndPoint = CGPointMake(0, self.bounds.size.height * reflectionScale);
-        CGContextDrawLinearGradient(gradientContext, gradient, gradientStartPoint,
-                                    gradientEndPoint, kCGGradientDrawsAfterEndLocation);
-        CGImageRef gradientMask = CGBitmapContextCreateImage(gradientContext);
-        CGGradientRelease(gradient);
-        CGColorSpaceRelease(colorSpace);
-        UIGraphicsEndImageContext();
-        
-        //create drawing context
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextScaleCTM(context, 1.0, -1.0);
-        CGContextTranslateCTM(context, 0.0, -self.bounds.size.height);
-        
-        //clip to gradient
-        CGContextClipToMask(context, self.bounds, gradientMask);
-        CGImageRelease(gradientMask);
-        
-        //draw reflected layer content
-        [self.layer renderInContext:context];
-        
-        //capture resultant image
-        reflectionView.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        //get reflection bounds
+        CGSize size = CGSizeMake(self.bounds.size.width, self.bounds.size.height * _reflectionScale);
+        if (size.height > 0.0f && size.width > 0.0f)
+        {
+            //create gradient mask
+            UIGraphicsBeginImageContextWithOptions(size, YES, 0.0f);
+            CGContextRef gradientContext = UIGraphicsGetCurrentContext();
+            CGFloat colors[] = {1.0f, 1.0f, 0.0f, 1.0f};
+            CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
+            CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, colors, NULL, 2);
+            CGPoint gradientStartPoint = CGPointMake(0.0f, 0.0f);
+            CGPoint gradientEndPoint = CGPointMake(0.0f, size.height);
+            CGContextDrawLinearGradient(gradientContext, gradient, gradientStartPoint,
+                                        gradientEndPoint, kCGGradientDrawsAfterEndLocation);
+            CGImageRef gradientMask = CGBitmapContextCreateImage(gradientContext);
+            CGGradientRelease(gradient);
+            CGColorSpaceRelease(colorSpace);
+            UIGraphicsEndImageContext();
+            
+            //create drawing context
+            UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+            CGContextRef context = UIGraphicsGetCurrentContext();
+            CGContextScaleCTM(context, 1.0f, -1.0f);
+            CGContextTranslateCTM(context, 0.0f, -self.bounds.size.height);
+            
+            //clip to gradient
+            CGContextClipToMask(context, CGRectMake(0.0f, self.bounds.size.height - size.height,
+                                                    size.width, size.height), gradientMask);
+            CGImageRelease(gradientMask);
+            
+            //draw reflected layer content
+            [self.layer renderInContext:context];
+            
+            //capture resultant image
+            _reflectionView.image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+        }
         
         //update reflection
-        reflectionView.alpha = reflectionAlpha;
-        reflectionView.frame = CGRectMake(0, self.bounds.size.height + reflectionGap,
-                                          self.bounds.size.width, self.bounds.size.height);
+        _reflectionView.alpha = _reflectionAlpha;
+        _reflectionView.frame = CGRectMake(0, self.bounds.size.height + _reflectionGap, size.width, size.height);
     }
 }
 
-- (void)setup
+- (void)setUp
 {
     //set default properties
-    reflectionGap = 4;
-    reflectionScale = 0.5;
-    reflectionAlpha = 0.5;
+    _reflectionGap = 4.0f;
+    _reflectionScale = 0.5f;
+    _reflectionAlpha = 0.5f;
     
     //update reflection
-    [self update];
+    [self setNeedsLayout];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder]))
     {
-        [self setup];
+        [self setUp];
     }
     return self;
 }
@@ -181,33 +188,33 @@
 {
     if ((self = [super initWithFrame:frame]))
     {
-        [self setup];
+        [self setUp];
     }
     return self;
 }
 
-- (void)setReflectionGap:(CGFloat)_reflectionGap
+- (void)setReflectionGap:(CGFloat)reflectionGap
 {
-    reflectionGap = _reflectionGap;
-    [self update];
+    _reflectionGap = reflectionGap;
+    [self setNeedsLayout];
 }
 
-- (void)setReflectionScale:(CGFloat)_reflectionScale
+- (void)setReflectionScale:(CGFloat)reflectionScale
 {
-    reflectionScale = _reflectionScale;
-    [self update];
+    _reflectionScale = reflectionScale;
+    [self setNeedsLayout];
 }
 
-- (void)setReflectionAlpha:(CGFloat)_reflectionAlpha
+- (void)setReflectionAlpha:(CGFloat)reflectionAlpha
 {
-    reflectionAlpha = _reflectionAlpha;
-    [self update];
+    _reflectionAlpha = reflectionAlpha;
+    [self setNeedsLayout];
 }
 
-- (void)setDynamic:(BOOL)_dynamic
+- (void)setDynamic:(BOOL)dynamic
 {
-    dynamic = _dynamic;
-    [self update];
+    _dynamic = dynamic;
+    [self setNeedsLayout];
 }
 
 - (void)layoutSubviews
@@ -217,9 +224,9 @@
 
 - (void)dealloc
 {
-    [gradientLayer release];
-    [reflectionView release];
-    [super dealloc];
+    [_gradientLayer release];
+    [_reflectionView release];
+    [super ah_dealloc];
 }
 
 @end

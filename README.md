@@ -6,6 +6,22 @@ ReflectionView is a UIView subclass designed to make it easy to create "mirrored
 You may have noticed that Apple provides a Reflection sample project for this, but Apple's solution works only with images and involves fairly slow CPU-bound drawing to update the reflection, making it unsuitable for reflecting animated content. ReflectionView can operate in two modes; static mode - which works like Apple's sample code - or dynamic mode, which uses Core Animation and works in real-time on any view. This means you can use it to reflect the contents of a view containing dynamic elements such as controls or animation and the reflection will keep up in real-time.
 
 
+Supported OS & SDK Versions
+-----------------------------
+
+* Supported build target - iOS 5.1 / Mac OS 10.7 (Xcode 4.3.1, Apple LLVM compiler 3.1)
+* Earliest supported deployment target - iOS 4.3 / Mac OS 10.6
+* Earliest compatible deployment target - iOS 4.0 / Mac OS 10.6
+
+NOTE: 'Supported' means that the library has been tested with this version. 'Compatible' means that the library should work on this OS version (i.e. it doesn't rely on any unavailable SDK features) but is no longer being tested for compatibility and may require tweaking or bug fixes to run correctly.
+
+
+ARC Compatibility
+------------------
+
+ReflectionView makes use of the ARC Helper library to automatically work with both ARC and non-ARC projects through conditional compilation. There is no need to exclude ReflectionView files from the ARC validation process, or to convert ReflectionView using the ARC conversion tool.
+
+
 Installation
 --------------
 
