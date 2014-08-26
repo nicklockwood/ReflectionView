@@ -1,5 +1,6 @@
 ReflectionView
-version 1.1, June 27th, 2012
+
+version 1.2, August 26th, 2014
 
 Copyright (C) 2011 Charcoal Design
 

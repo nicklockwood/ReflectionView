@@ -14,37 +14,22 @@
 
 - (IBAction)toggleDynamic:(UISwitch *)sender
 {
-    reflectionView.dynamic = sender.on;
+    self.reflectionView.dynamic = sender.on;
 }
 
 - (IBAction)updateAlpha:(UISlider *)slider
 {
-    reflectionView.reflectionAlpha = slider.value;
+    self.reflectionView.reflectionAlpha = slider.value;
 }
 
 - (IBAction)updateGap:(UISlider *)slider
 {
-    reflectionView.reflectionGap = slider.value;
+    self.reflectionView.reflectionGap = slider.value;
 }
 
 - (IBAction)updateScale:(UISlider *)slider
 {
-    reflectionView.reflectionScale = slider.value;
-}
-
-- (void)dealloc
-{
-    [reflectionView release];
-    [super dealloc];
-}
-
-#pragma mark -
-#pragma mark View lifecycle
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    self.reflectionView = nil;
+    self.reflectionView.reflectionScale = slider.value;
 }
 
 @end

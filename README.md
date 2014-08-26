@@ -9,9 +9,9 @@ You may have noticed that Apple provides a Reflection sample project for this, b
 Supported OS & SDK Versions
 -----------------------------
 
-* Supported build target - iOS 5.1 / Mac OS 10.7 (Xcode 4.3.1, Apple LLVM compiler 3.1)
-* Earliest supported deployment target - iOS 4.3 / Mac OS 10.6
-* Earliest compatible deployment target - iOS 4.0 / Mac OS 10.6
+* Supported build target - iOS 8.0 (Xcode 6.0, Apple LLVM compiler 6.0)
+* Earliest supported deployment target - iOS 6.1
+* Earliest compatible deployment target - iOS 4.3
 
 NOTE: 'Supported' means that the library has been tested with this version. 'Compatible' means that the library should work on this OS version (i.e. it doesn't rely on any unavailable SDK features) but is no longer being tested for compatibility and may require tweaking or bug fixes to run correctly.
 
@@ -19,7 +19,15 @@ NOTE: 'Supported' means that the library has been tested with this version. 'Com
 ARC Compatibility
 ------------------
 
-ReflectionView makes use of the ARC Helper library to automatically work with both ARC and non-ARC projects through conditional compilation. There is no need to exclude ReflectionView files from the ARC validation process, or to convert ReflectionView using the ARC conversion tool.
+As of version 1.2, ReflectionView requires ARC. If you wish to use ReflectionView in a non-ARC project, just add the -fobjc-arc compiler flag to the ReflectionView.m class. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click ReflectionView.m in the list and type -fobjc-arc into the popover.
+
+If you wish to convert your whole project to ARC, comment out the #error line in ReflectionView.m, then run the Edit > Refactor > Convert to Objective-C ARC... tool in Xcode and make sure all files that you wish to use ARC for (including ReflectionView.m) are checked.
+
+
+Thread Safety
+--------------
+
+None of the ReflectionView external interfaces are thread safe and you should not call any methods or set any properties on ReflectionView except from the main thread.
 
 
 Installation
@@ -63,7 +71,7 @@ Usage
 
 To use the ReflectionView, simply add the views you want to reflect as subviews of an instance of ReflectionView and they will be automatically mirrored. You can also subclass ReflectionView to make new views.
 
-Note that to function correctly, the ReflectionView instance must have `clipToBounds' disabled.
+Note that to function correctly, the ReflectionView instance must have `clipToBounds` disabled.
 
 
 Performance
@@ -72,3 +80,24 @@ Performance
 The trick to getting good performance with ReflectionView is to use the correct drawing mode. In dynamic mode, the reflection automatically updates whenever the content changes. This is good for content that changes often or which contains animation, but it carries a per-frame performance penalty.
 
 For content that changes infrequently, set the dynamic property to 'NO' for better performance. With dynamic mode disabled, you will need to manually call the `update` method to update the reflection if the content changes.
+
+
+Release Notes
+----------------
+
+Version 1.2
+
+- Now requires ARC
+- Fixed crash on layoutSubviews
+- Now complies with -Weverything warning level
+- Added podspec
+
+Version 1.1
+
+- Added ARC support
+- Improved performance of non-dynamic reflection rendering
+- Fixed warning when view has a width or height of zero, or reflectionScale is zero
+
+Version 1.0
+
+- Initial release

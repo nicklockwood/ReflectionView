@@ -12,7 +12,7 @@
 
 @interface ReflectionViewExampleViewController : UIViewController
 
-@property (nonatomic, retain) IBOutlet ReflectionView *reflectionView;
+@property (nonatomic, strong) IBOutlet ReflectionView *reflectionView;
 
 - (IBAction)toggleDynamic:(UISwitch *)sender;
 - (IBAction)updateAlpha:(UISlider *)slider;

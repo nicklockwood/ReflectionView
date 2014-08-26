@@ -12,7 +12,7 @@
 
 @interface ReflectionViewExampleAppDelegate : NSObject <UIApplicationDelegate>
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet ReflectionViewExampleViewController *viewController;
+@property (nonatomic, strong) IBOutlet UIWindow *window;
+@property (nonatomic, strong) IBOutlet ReflectionViewExampleViewController *viewController;
 
 @end
