@@ -220,6 +220,7 @@
 - (void)layoutSubviews
 {
     [self update];
+    [super layoutSubviews];
 }
 
 - (void)dealloc
